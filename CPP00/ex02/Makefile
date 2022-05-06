@@ -1,4 +1,4 @@
-NAME = Phonebook
+NAME = Account
 
 CXXFLAGS = -Wall -Werror -std=c++98
 
