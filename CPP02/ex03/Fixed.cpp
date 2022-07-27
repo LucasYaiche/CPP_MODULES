@@ -146,6 +146,20 @@ std::ostream &			operator<<( std::ostream & o, const Fixed & i )
 	return o;
 }
 
+/*
+** --------------------------------- Getters/Setters --------------------------
+*/
+
+	int			Fixed::getRawBits(void) const
+	{
+		return this->_raw;
+	}
+
+	void		Fixed::setRawBits(int const raw)
+	{
+		this->_raw = raw;
+	}
+
 
 /*
 ** --------------------------------- Functions --------------------------------
@@ -188,20 +202,3 @@ std::ostream &			operator<<( std::ostream & o, const Fixed & i )
 			return n1;
 		return n2;
 	}
-
-/*
-** --------------------------------- Getters/Setters --------------------------
-*/
-
-	int			Fixed::getRawBits(void) const
-	{
-		return this->_raw;
-	}
-
-	void		Fixed::setRawBits(int const raw)
-	{
-		this->_raw = raw;
-	}
-
-
-/* ************************************************************************** */
