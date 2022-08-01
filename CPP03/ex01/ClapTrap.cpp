@@ -4,10 +4,16 @@
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
+ClapTrap::ClapTrap() : _name("Default"), _HP(10), _EP(10), _AD(0)
+{
+	std::cout << "ClapTrap default constructor called" << std::endl;
+}
+
 ClapTrap::ClapTrap(std::string name) : _name(name), _HP(10), _EP(10), _AD(0)
 {
 	std::cout << "ClapTrap default constructor called" << std::endl;
 }
+
 ClapTrap::ClapTrap(std::string name, int HP, int EP, int AD) : _name(name), _HP(HP), _EP(EP), _AD(AD)
 {
 	std::cout << "ClapTrap constructor called" << std::endl;

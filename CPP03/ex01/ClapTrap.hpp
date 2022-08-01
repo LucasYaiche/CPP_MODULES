@@ -9,6 +9,7 @@ class ClapTrap
 
 	public:
 
+		ClapTrap();
 		ClapTrap(std::string name);
 		ClapTrap(std::string name, int HP, int EP, int AD);
 		ClapTrap( ClapTrap const & src );
@@ -17,9 +18,9 @@ class ClapTrap
 		int	getAD(void);
 		int	getHP(void);
 		
+		void			attack(const std::string & target);
 		void			takeDamage(int amount);
 		void			beRepaired(int amount);
-		void			attack(const std::string & target);
 
 
 		ClapTrap &		operator=( ClapTrap const & rhs );
