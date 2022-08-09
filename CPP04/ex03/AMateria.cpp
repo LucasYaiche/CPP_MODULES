@@ -6,12 +6,10 @@
 
 AMateria::AMateria(std::string const & type) : type(type)
 {
-	std::cout << "AMateria default constructor called" << std::cout;
 }
 
 AMateria::AMateria( const AMateria & src )
 {
-	std::cout << "AMateria copy constructor called" << std::cout;
 }
 
 
@@ -21,7 +19,6 @@ AMateria::AMateria( const AMateria & src )
 
 AMateria::~AMateria()
 {
-	std::cout << "AMateria destructor called" << std::cout;
 }
 
 
@@ -50,7 +47,7 @@ std::ostream &			operator<<( std::ostream & o, AMateria const & i )
 ** --------------------------------- ACCESSOR ---------------------------------
 */
 
-std::string	const & getType() const
+std::string	const & AMateria::getType() const
 {
 	return this->type;
 }

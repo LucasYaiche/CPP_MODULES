@@ -3,8 +3,10 @@
 
 # include <iostream>
 # include <string>
+# include "IMateriaSource.hpp"
+# include "AMateria.hpp"
 
-class MateriaSource
+class MateriaSource : public IMateriaSource
 {
 
 	public:
@@ -13,7 +15,16 @@ class MateriaSource
 		MateriaSource( MateriaSource const & src );
 		~MateriaSource();
 
+
+		virtual void learnMateria(AMateria*);
+		virtual AMateria* createMateria(std::string const & type);
+
 		MateriaSource &		operator=( MateriaSource const & rhs );
+
+	protected:
+
+		AMateria * 		spell[4];
+
 
 	private:
 

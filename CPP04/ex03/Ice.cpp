@@ -4,14 +4,12 @@
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-Ice::Ice() : MateriaSource("ice")
+Ice::Ice() : AMateria("ice")
 {
-	std::cout << "Ice default constructor" << std::endl;
 }
 
-Ice::Ice( const Ice & src )
+Ice::Ice( const Ice & src ) : AMateria(src)
 {
-	std::cout << "Ice copy constructor" << std::endl;
 }
 
 
@@ -21,7 +19,6 @@ Ice::Ice( const Ice & src )
 
 Ice::~Ice()
 {
-	std::cout << "Ice destructor" << std::endl;
 }
 
 
@@ -51,13 +48,12 @@ std::ostream &			operator<<( std::ostream & o, Ice const & i )
 
 AMateria* Ice::clone() const
 {
-	AMateria returned = new AMateria("ice");
-	return returned; 
+	return new Ice(*this); 
 }
 
 void Ice::use(ICharacter& target)
 {
-	std::cout << "*shoots and ice bolt at " << target.getName() << " *" << std::endl;
+	std::cout << "* shoots an ice bolt at " << target.getName() << " *" << std::endl;
 }
 /*
 ** --------------------------------- ACCESSOR ---------------------------------

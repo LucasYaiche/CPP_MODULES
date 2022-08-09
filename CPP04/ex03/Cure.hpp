@@ -3,18 +3,20 @@
 
 # include <iostream>
 # include <string>
-# include "Character"
+# include "Character.hpp"
+# include "AMateria.hpp"
 
 class Cure : public AMateria
 {
 
 	public:
 
-		Cure(std::string const & type);
+		Cure();
 		Cure( Cure const & src );
 		~Cure();
 
-		AMateria*	clone() const;
+		AMateria*		clone() const;
+		virtual void	use(ICharacter& target);
 
 		Cure &		operator=( Cure const & rhs );
 

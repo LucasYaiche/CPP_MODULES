@@ -3,15 +3,16 @@
 
 # include <iostream>
 # include <string>
+# include "AMateria.hpp"
+
+class AMateria;
 
 class ICharacter
 {
 
 	public:
 
-		ICharacter(std::string name);
-		ICharacter( ICharacter const & src );
-		virtual ~ICharacter();
+		virtual ~ICharacter(){}
 
 		virtual void equip(AMateria* m) = 0;
 		virtual void unequip(int idx) = 0;

@@ -1,4 +1,8 @@
-
+#include "MateriaSource.hpp"
+#include "ICharacter.hpp"
+#include "Character.hpp"
+#include "Cure.hpp"
+#include "Ice.hpp"
 
 int main()
 {
@@ -17,5 +21,6 @@ int main()
 	delete bob;
 	delete me;
 	delete src;
+	// system("leaks Materia");
 	return 0;
 }

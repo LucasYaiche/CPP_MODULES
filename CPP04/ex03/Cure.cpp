@@ -4,14 +4,12 @@
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-Cure::Cure(std::string type) : MateriaSource("cure")
+Cure::Cure() : AMateria("cure")
 {
-	std::cout << "Cure default constructor" << std::endl;
 }
 
-Cure::Cure( const Cure & src )
+Cure::Cure( const Cure & src ) : AMateria(src)
 {
-	std::cout << "Cure copy constructor" << std::endl;
 }
 
 
@@ -21,9 +19,7 @@ Cure::Cure( const Cure & src )
 
 Cure::~Cure()
 {
-	std::cout << "Cure destructor" << std::endl;
 }
-
 
 /*
 ** --------------------------------- OVERLOAD ---------------------------------
@@ -49,15 +45,14 @@ std::ostream &			operator<<( std::ostream & o, Cure const & i )
 ** --------------------------------- METHODS ----------------------------------
 */
 
-AMateria* clone() const
+AMateria* Cure::clone() const
 {
-	AMateria returned = new AMateria("cure");
-	return returned; 
+	return new Cure(*this); 
 }
 
-void use(ICharacter& target)
+void Cure::use(ICharacter& target)
 {
-	std::cout << "* heal" << target.getName() << "'s wounds *" << std::endl;
+	std::cout << "* heals " << target.getName() << "'s wounds *" << std::endl;
 }
 
 /*

@@ -4,13 +4,20 @@
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-Character::Character(std::string name)
+Character::Character(const std::string& name) : name(name)
 {
-
+	for(int i = 0; i < 4; i++)
+		inventory[i] = NULL;
 }
 
 Character::Character( const Character & src )
 {
+	for(int i = 0; i < 4; i++)
+	{
+		if ((src.inventory)[i])
+			(this->inventory)[i] = (src.inventory[i])->clone();
+	}
+	*this = src;
 }
 
 
@@ -20,6 +27,11 @@ Character::Character( const Character & src )
 
 Character::~Character()
 {
+	for (int i = 0; i < 4; i++)
+	{
+		if(inventory[i])
+			delete inventory[i];
+	}
 }
 
 
@@ -29,16 +41,20 @@ Character::~Character()
 
 Character &				Character::operator=( Character const & rhs )
 {
-	//if ( this != &rhs )
-	//{
-		//this->_value = rhs.getValue();
-	//}
+
+	for(int i = 0; i < 4; i++)
+	{
+		if (this->inventory[i])
+			delete this->inventory[i];
+		if (rhs.inventory[i])
+			this->inventory[i] = (rhs.inventory[i])->clone();
+	}
+	name = rhs.name;
 	return *this;
 }
 
 std::ostream &			operator<<( std::ostream & o, Character const & i )
 {
-	//o << "Value = " << i.getValue();
 	return o;
 }
 
@@ -47,33 +63,40 @@ std::ostream &			operator<<( std::ostream & o, Character const & i )
 ** --------------------------------- METHODS ----------------------------------
 */
 
-void equip(AMateria* m)
+void Character::equip(AMateria* m)
 {
-	for (int i = 0, i < 4, i++)
+	for (int i = 0; i < 4; i++)
 	{
 		if (this->inventory[i] == NULL)
 		{
 			this->inventory[i] = m;
-			return 0;
+			return ;
 		}
 	}
 }
 
-void unequip(int idx);
+void Character::unequip(int idx)
 {
+	if (idx < 0 || idx > 3)
+	{
+		std::cout << "Index is either too big or too low." << std::endl;
+		return ;
+	}
+	AMateria *ptr = this->inventory[idx];
 	this->inventory[idx] = NULL;
+	std::cout << this->name << "dropped" << *ptr << std::endl;
 }
 
-void use(int idx, ICharacter& target);
+void Character::use(int idx, ICharacter& target)
 {
-	std::cout << "*shoots and ice bolt at " << target.getName() << " *" << std::endl;
+	this->inventory[idx]->use(target);
 }
 
 /*
 ** --------------------------------- ACCESSOR ---------------------------------
 */
 
-std::string const & getName() const
+std::string const & Character::getName() const
 {
 	return this->name;
 }
