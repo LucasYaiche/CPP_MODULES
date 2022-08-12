@@ -14,5 +14,6 @@ int main(void)
     delete Kenny;
 
     randomChump("Kyle");
+	// system("leaks BraiiiiiiinnnzzzZ");
     return (0);
 }

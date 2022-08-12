@@ -25,13 +25,13 @@ void	Harl::complain(std::string level)
 	{
 		case 0 :
 			(this->*(type[0]))();
-			break;
+			// break;
 		case 1 :
 			(this->*(type[1]))();
-			break;
+			// break;
 		case 2 :
 			(this->*(type[2]))();
-			break;
+			// break;
 		case 3 :
 			(this->*(type[3]))();
 			break;

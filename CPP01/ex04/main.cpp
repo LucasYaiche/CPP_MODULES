@@ -1,44 +1,45 @@
-#include "all.hpp"
+#include <iostream>
+#include <fstream>
+#include <string>
 
-
-int	replacement(std::string *txt, std::string s1, std::string s2)
+std::string	replacement(std::string txt, std::string s1, std::string s2)
 {
 	//Check where to replace
-	std::size_t found;
-	while (1)
-	{
-		found = txt->find(s1);
-		if (found == std::string::npos)
-			return 1;
-		txt->erase(found, found + s1.length());
-		txt->insert(found, s2);
-	}
-	return 0;
-}
+	std::size_t length = s1.length();
 
-void	close(std::ifstream ifs, std::ofstream ofs)
-{
-	//Close streams
-	ifs.close();
-	ofs.close();
+	for (size_t i = 0; i < txt.length(); i++)
+	{
+		if (txt.compare(i, length, s1) == 0)
+		{
+			txt.erase(i, length);
+			txt.insert(i, s2);
+			i += s2.length();
+		}
+	}
+	return txt;
 }
 
 int main(int argc, char **argv)
 {
-	std::ifstream	ifs(argv[1]);
-	std::ofstream	ofs("copy.replace");
 	std::string		line;
 	std::string		txt;
-	std::string		s1 = argv[2];
-	std::string		s2 = argv[3];
 
 	//Error arg
-	if (argc != 4 || s1 == "" || s2 == "")
+	if (argc != 4)
 	{
 		std::cout << "Error arguments";
-		close(ifs, ofs);
 		return 1;
 	}
+	std::string		s1 = argv[2];
+	std::string		s2 = argv[3];
+	if (s1 == "" || s2 == "")
+	{
+		std::cout << "Error arguments";
+		return 1;
+	}
+	std::string		filename(argv[1]);
+	std::ifstream	ifs(filename);
+	std::ofstream	ofs(filename + ".replace");
 	//Copy text
 	if (ifs && ofs)
 	{
@@ -47,15 +48,16 @@ int main(int argc, char **argv)
 			txt.append(line);
 			txt.append("\n");
 		}
-		replacement(&txt, s1, s2);
-		ofs << txt;
+		ofs << replacement(txt, s1, s2);
 	}
 	else
 	{
 		std::cout << "Error" << std::endl;
-		close(ifs, ofs);
+		ifs.close();
+		ofs.close();
 		return 1;
 	}
-	close(ifs, ofs);	
+	ifs.close();
+	ofs.close();	
 	return 0;
 }

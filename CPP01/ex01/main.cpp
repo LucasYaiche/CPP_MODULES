@@ -11,5 +11,6 @@ int main(void)
         Horde[i].announce();
     }
     delete [] Horde;
+	// system("leaks BraiiiiiiinnnzzzZ");
     return (0);
 }

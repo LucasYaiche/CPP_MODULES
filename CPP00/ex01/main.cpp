@@ -20,7 +20,7 @@ void	putline(std::string data)
 
 bool is_digits(const std::string &str)
 {
-   for(int i=0; i < str.length(); i++)
+   for(unsigned long i=0; i < str.length(); i++)
    {
 	   if (!std::isdigit(str[i]))
 			return 0;
@@ -37,6 +37,11 @@ int main(void)
 
 	while (getline(std::cin, line))
 	{
+		if (std::cin.eof())
+		{
+			std::cout << std::endl << "End of the program" << std::endl;
+			return 0;
+		}
 		if (line == "ADD")
 		{
 			std::cout << "First name:";
@@ -71,6 +76,11 @@ int main(void)
 			}
 			std::cout << "Enter id:";
 			std::cin >> ind;
+			if (std::cin.eof())
+			{
+				std::cout << std::endl << "End of the program" << std::endl;
+				return 0;
+			}
 			while (!is_digits(ind) || atoi(ind.c_str()) <= 0 || atoi(ind.c_str()) > 8)
 			{
 				std::cout << "wrong argument. Try again:";

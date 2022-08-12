@@ -1,6 +1,6 @@
 NAME = Account
 
-CXXFLAGS = -Wall -Werror -std=c++98
+CXXFLAGS = -Wall -Werror -Wextra -std=c++98
 
 SRCS = *.cpp
 
