@@ -40,7 +40,11 @@ Point &				Point::operator=( Point const & rhs )
 	return *this;
 }
 
-
+std::ostream &			operator<<( std::ostream & o, Point const & i )
+{
+	o << "x = " << i.getX() << " | y = " << i.getY() << std::endl;
+	return o;
+}
 /*
 ** --------------------------------- METHODS ----------------------------------
 */

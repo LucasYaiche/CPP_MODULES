@@ -20,11 +20,9 @@ class Fixed
 
 	private:
 
-		int					_raw;
+		int 				_raw;
 		static	const int	_bit = 8;
 
 };
-
-std::ostream &			operator<<( std::ostream & o, Fixed const & i );
 
 #endif /* *********************************************************** FIXED_H */

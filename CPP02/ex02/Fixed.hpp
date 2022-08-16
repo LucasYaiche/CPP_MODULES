@@ -31,7 +31,7 @@ class Fixed
 		bool		operator!=( const Fixed & rhs ) const;
 
 		Fixed &		operator++(void);
-		Fixed		operator++(int);
+		Fixed 		operator++(int);
 		Fixed &		operator--(void);
 		Fixed		operator--(int);
 

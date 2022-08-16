@@ -14,5 +14,16 @@ int main( void )
 	std::cout << b << std::endl;
 	
 	std::cout << Fixed::max( a, b ) << std::endl;
+
+	std::cout << "============ my tests ============" << std::endl;
+	
+	Fixed c(2);
+	Fixed d(3);
+	std::cout << "c = " << c << std::endl;
+	std::cout << "d = " << d << std::endl;
+	std::cout << "c + d = " << c + d << std::endl;
+	std::cout << "c - d = " << c - d << std::endl;
+	std::cout << "c * d = " << c * d << std::endl;
+	std::cout << "c / d = " << c / d << std::endl;
 	return 0;
 }

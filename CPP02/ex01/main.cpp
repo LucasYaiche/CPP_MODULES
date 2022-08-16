@@ -19,5 +19,9 @@ int main( void )
 	std::cout << "c is " << c.toInt() << " as integer" << std::endl;
 	std::cout << "d is " << d.toInt() << " as integer" << std::endl;
 	
+	std::cout << "============ my tests ============" << std::endl;
+	std::cout << "\"<<\" operator :";
+	std::cout << a << std::endl;
+	std::cout << std::endl;
 	return 0;
 }

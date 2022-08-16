@@ -4,7 +4,7 @@
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-Fixed::Fixed(void)
+Fixed::Fixed(void) : _raw(0)
 {
 	std::cout << "Default constructor called" << std::endl;
 	this->_raw = 0;
@@ -13,9 +13,8 @@ Fixed::Fixed(void)
 Fixed::Fixed( const Fixed & src )
 {
 	std::cout << "Copy constructor called" << std::endl;
-	*this = src;
+	this->_raw = src._raw;
 }
-
 
 /*
 ** -------------------------------- DESTRUCTOR --------------------------------
@@ -36,17 +35,10 @@ Fixed &				Fixed::operator=( Fixed const & rhs )
 	std::cout << "Copy assignment operator called" << std::endl;
 	if ( this != &rhs )
 	{
-		this->_raw = rhs.getRawBits();
+		this->_raw = rhs._raw;
 	}
 	return *this;
 }
-
-std::ostream &			operator<<( std::ostream & o, Fixed const & i )
-{
-	//o << "Value = " << i.getValue();
-	return o;
-}
-
 
 /*
 ** --------------------------------- Functions --------------------------------

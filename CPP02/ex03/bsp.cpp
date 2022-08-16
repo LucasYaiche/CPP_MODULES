@@ -40,8 +40,8 @@ bool	bsp(const Point a, const Point b, const Point c, const Point point)
 	if (check(a, b, c, point))
 	{
 		std::cout << "The point is inside the triangle." << std::endl;
-		return 0;
+		return true;
 	}
 	std::cout << "The point is not inside the triangle." << std::endl;
-	return 0;
+	return false;
 }
