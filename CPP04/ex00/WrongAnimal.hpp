@@ -28,6 +28,4 @@ class WrongAnimal
 
 };
 
-std::ostream &			operator<<( std::ostream & o, WrongAnimal const & i );
-
 #endif /* ***************************************************** WRONGANIMAL_H */

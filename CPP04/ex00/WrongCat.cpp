@@ -36,13 +36,6 @@ WrongCat &				WrongCat::operator=( WrongCat const & rhs )
 	return *this;
 }
 
-std::ostream &			operator<<( std::ostream & o, WrongCat const & i )
-{
-	//o << "Value = " << i.getValue();
-	return o;
-}
-
-
 /*
 ** --------------------------------- METHODS ----------------------------------
 */

@@ -5,7 +5,7 @@
 # include <string>
 # include "ClapTrap.hpp"
 
-class FragTrap : virtual public ClapTrap
+class FragTrap : public ClapTrap
 {
 
 	public:
@@ -25,7 +25,5 @@ class FragTrap : virtual public ClapTrap
 	private:
 
 };
-
-std::ostream &			operator<<( std::ostream & o, FragTrap const & i );
 
 #endif /* ******************************************************** FRAGTRAP_H */

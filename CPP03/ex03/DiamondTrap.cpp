@@ -6,19 +6,17 @@
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-DiamondTrap::DiamondTrap(std::string name) : ClapTrap(name + "_clap_name", 100, 50, 30)
+DiamondTrap::DiamondTrap(std::string name) : ClapTrap(name + "_clap_name", 100, 50, 30), _name(name)
 {
-		this->_name = name;
 		std::cout << "DiamondTrap default constructor called" << std::endl;
 }
 
-DiamondTrap::DiamondTrap(std::string name, int HP, int EP, int AD) : ClapTrap(name+ "_clap_name", HP, EP, AD)
+DiamondTrap::DiamondTrap(std::string name, int HP, int EP, int AD) : ClapTrap(name + "_clap_name", HP, EP, AD), _name(name)
 {
-	this->_name = name;
 	std::cout << "DiamondTrap constructor called" << std::endl;
 }
 
-DiamondTrap::DiamondTrap( const DiamondTrap & src ) : ClapTrap(src)
+DiamondTrap::DiamondTrap( const DiamondTrap & src ) : ClapTrap(src), _name(src._name)
 {
 	std::cout << "DiamondTrap copy constructor called" << std::endl;
 }
@@ -47,17 +45,14 @@ DiamondTrap &				DiamondTrap::operator=( DiamondTrap const & rhs )
 	return *this;
 }
 
-std::ostream &			operator<<( std::ostream & o, DiamondTrap const & i )
-{
-	//o << "Value = " << i.getValue();
-	return o;
-}
-
-
 /*
 ** --------------------------------- METHODS ----------------------------------
 */
 
+void	DiamondTrap::WhoAmI()
+{
+	std::cout << "Diamond diamond name: " << this->_name << " | claptrap name: " << getName() << std::endl;
+}
 
 /*
 ** --------------------------------- ACCESSOR ---------------------------------

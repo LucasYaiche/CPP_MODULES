@@ -15,8 +15,9 @@ class ClapTrap
 		ClapTrap( ClapTrap const & src );
 		~ClapTrap();
 
-		int	getAD(void);
-		int	getHP(void);
+		int			getAD(void);
+		int			getHP(void);
+		std::string	getName(void);
 		
 		void			attack(const std::string & target);
 		void			takeDamage(int amount);
@@ -33,7 +34,5 @@ class ClapTrap
 		int 		_AD;
 
 };
-
-std::ostream &			operator<<( std::ostream & o, ClapTrap const & i );
 
 #endif /* ******************************************************** CLAPTRAP_H */

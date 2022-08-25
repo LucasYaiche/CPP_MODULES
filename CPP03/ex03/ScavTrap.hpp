@@ -25,6 +25,4 @@ class ScavTrap : virtual public ClapTrap
 
 };
 
-std::ostream &			operator<<( std::ostream & o, ScavTrap const & i );
-
 #endif /* ******************************************************** SCAVTRAP_H */

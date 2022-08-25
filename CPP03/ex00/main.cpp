@@ -17,16 +17,4 @@ int main(void)
 	Ryu.takeDamage(Ken.getAD());
 	Ken.attack("Ryu");
 	Ryu.takeDamage(Ken.getAD());
-	Ken.attack("Ryu");
-	Ryu.takeDamage(Ken.getAD());
-	Ken.attack("Ryu");
-	Ryu.takeDamage(Ken.getAD());
-	Ken.attack("Ryu");
-	Ryu.takeDamage(Ken.getAD());
-	Ken.attack("Ryu");
-	Ryu.takeDamage(Ken.getAD());
-	Ken.attack("Ryu");
-	Ryu.takeDamage(Ken.getAD());
-	Ken.attack("Ryu");
-	Ryu.takeDamage(Ken.getAD());
 }

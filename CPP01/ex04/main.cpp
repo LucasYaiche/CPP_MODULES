@@ -13,7 +13,7 @@ std::string	replacement(std::string txt, std::string s1, std::string s2)
 		{
 			txt.erase(i, length);
 			txt.insert(i, s2);
-			i += s2.length();
+			i += s2.length() - 1;
 		}
 	}
 	return txt;

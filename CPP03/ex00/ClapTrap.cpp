@@ -19,7 +19,7 @@ ClapTrap::ClapTrap(std::string name, int HP, int EP, int AD) : _name(name), _HP(
 	std::cout << "ClapTrap constructor called" << std::endl;
 }
 
-ClapTrap::ClapTrap( const ClapTrap & src )
+ClapTrap::ClapTrap( const ClapTrap & src ) : _name(src._name), _HP(src._HP), _EP(src._EP), _AD(src._AD)
 {
 	std::cout << "ClapTrap copy constructor called" << std::endl;
 }
@@ -41,16 +41,12 @@ ClapTrap::~ClapTrap()
 
 ClapTrap &				ClapTrap::operator=( ClapTrap const & rhs )
 {
-	(void)rhs;
+	this->_name = rhs._name;
+	this->_HP = rhs._HP;
+	this->_EP = rhs._EP;
+	this->_AD = rhs._AD;
 	return *this;
 }
-
-std::ostream &			operator<<( std::ostream & o, ClapTrap const & i )
-{
-	//o << "Value = " << i.getValue();
-	return o;
-}
-
 
 /*
 ** --------------------------------- METHODS ----------------------------------

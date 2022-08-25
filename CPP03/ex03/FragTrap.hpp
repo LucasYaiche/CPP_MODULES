@@ -26,6 +26,4 @@ class FragTrap : virtual public ClapTrap
 
 };
 
-std::ostream &			operator<<( std::ostream & o, FragTrap const & i );
-
 #endif /* ******************************************************** FRAGTRAP_H */
