@@ -3,24 +3,52 @@
 
 # include <iostream>
 # include <string>
+# include <vector>
+# include <iterator>
+# include <algorithm>
+
+class	NotEnoughSpaceException : public std::exception
+{
+	public:
+		const char* what() const throw()
+		{
+			return "No Enough space";
+		}
+};
+
+class	InvalidSizeException : public std::exception
+{
+	public:
+		const char* what() const throw()
+		{
+			return "The size is invalid";
+		}
+};
 
 class Span
 {
 
 	public:
 
-		Span(unsigned N);
+		Span(unsigned int N);
 		Span( Span const & src );
 		~Span();
 
-		void	addNumber();
+		int	getVectorElement(int i);
+		int	getCount();
+
+		void	addNumber(int nbr);
+		void	addNumber(std::vector<int>::iterator begin, std::vector<int>::iterator end);
+		int		longestSpan();
+		int		shortestSpan();
 
 		Span &		operator=( Span const & rhs );
 
 	private:
 
+		const unsigned	int		_size;
+		unsigned	int			_count;
+		std::vector<int>		*_vectorint;
 };
-
-std::ostream &			operator<<( std::ostream & o, Span const & i );
 
 #endif /* ************************************************************ SPAN_H */
