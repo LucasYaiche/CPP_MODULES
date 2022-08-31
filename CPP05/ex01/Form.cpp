@@ -9,11 +9,19 @@ Form::Form(std::string name, int sgrade, int egrade) : _name(name), _signed(fals
 {
 	try
 	{
-		if (sgrade < 1 || sgrade > 150)
-			throw GradeIncorrect();
+		if (sgrade < 1 || egrade < 1)
+			throw GradeTooHighException();
 	}
-	
-	catch (GradeIncorrect& e)
+	catch (GradeTooHighException& e)
+	{
+		std::cout << e.what() << std::endl;
+	}
+	try
+	{
+		if (sgrade > 150 || egrade > 150)
+			throw GradeTooLowException();
+	}
+	catch (GradeTooLowException& e)
 	{
 		std::cout << e.what() << std::endl;
 	}
@@ -45,7 +53,12 @@ Form &				Form::operator=( Form const & rhs )
 
 std::ostream &			operator<<( std::ostream & o, Form const & i )
 {
-	o << "Form "<<i.getName() << ", " << i.getSigned()<< " requires grade " << i.getSGrade() << " to be signed and requires grade " << i.getEGrade()<< " to be executed." << std::endl;
+	o << "Form "<<i.getName() << ", ";
+	if (i.getSigned())
+		std::cout << "signed,";
+	else
+		std::cout << "not signed,";
+	std::cout << " requires grade " << i.getSGrade() << " to be signed and requires grade " << i.getEGrade()<< " to be executed." << std::endl;
 	return o;
 }
 

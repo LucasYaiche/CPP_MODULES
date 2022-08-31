@@ -5,7 +5,7 @@ int main(void)
 {
 	Bureaucrat Bob("Bob", 63);
 	Bureaucrat Sylvie("Sylvie", 24);
-	Bureaucrat Cheteve("Chteve", 1);
+	Bureaucrat Chteve("Chteve", 1);
 	Bureaucrat Pascale("Pascale", 150);
 	
 	std::cout << Bob;
@@ -29,8 +29,6 @@ int main(void)
 
 	Bob.signForm(D);
 	Bob.signForm(E);
-	D.Besigned(Bob);
-	E.Besigned(Bob);
 
 	std::cout << std::endl;
 	
@@ -41,13 +39,13 @@ int main(void)
 	
 	Bob.signForm(D);
 	Bob.signForm(E);
-	D.Besigned(Bob);
-	E.Besigned(Bob);	
+	std::cout << D;
+	std::cout << E;
 	
 	std::cout << std::endl;
 
-	std::cout << "Cheteve : ";
-	Cheteve.increase();	
+	std::cout << "Chteve : ";
+	Chteve.increase();	
 	std::cout << "Pascale : ";
 	Pascale.decrease();
 

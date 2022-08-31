@@ -4,19 +4,17 @@
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-WrongAnimal::WrongAnimal()
+WrongAnimal::WrongAnimal() : _type("WrongAnimal")
 {
-	this->_type = "WrongAnimal";
 	std::cout << "WrongAnimal default constructor called" << std::endl;
 }
 
-WrongAnimal::WrongAnimal(std::string type)
+WrongAnimal::WrongAnimal(std::string type) : _type(type)
 {
-	this->_type = type;
 	std::cout << "WrongAnimal constructor called" << std::endl;
 }
 
-WrongAnimal::WrongAnimal( const WrongAnimal & src )
+WrongAnimal::WrongAnimal( const WrongAnimal & src ) : _type(src._type)
 {
 	std::cout << "WrongAnimal copy constructor called" << std::endl;
 }
@@ -38,7 +36,10 @@ WrongAnimal::~WrongAnimal()
 
 WrongAnimal &				WrongAnimal::operator=( WrongAnimal const & rhs )
 {
-	this->_type = rhs._type;
+	if(this != &rhs)
+	{
+		this->_type = rhs._type;
+	}
 	return *this;
 }
 

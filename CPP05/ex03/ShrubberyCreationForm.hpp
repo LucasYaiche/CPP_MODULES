@@ -8,8 +8,6 @@
 
 # define TREE "    oxoxoo    ooxoo\n  ooxoxo oo  oxoxooo\n oooo xxoxoo ooo ooox\n oxo o oxoxo  xoxxoxo\n  oxo xooxoooo o ooo\n    ooo\\oo\\  /o/o\n        \\  \\/ /\n         |   /\n         |  |\n         | D|\n         |  |\n         |  |\n  ______/____\\____"
 
-class Form;
-
 class ShrubberyCreationForm : public Form
 {
 
@@ -29,7 +27,5 @@ class ShrubberyCreationForm : public Form
 		const std::string	_target;
 
 };
-
-std::ostream &			operator<<( std::ostream & o, ShrubberyCreationForm const & i );
 
 #endif /* ******************************************* SHRUBBERYCREATIONFORM_H */

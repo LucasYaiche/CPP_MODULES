@@ -29,6 +29,4 @@ class Character : public ICharacter
 
 };
 
-std::ostream &			operator<<( std::ostream & o, Character const & i );
-
 #endif /* ******************************************************* CHARACTER_H */

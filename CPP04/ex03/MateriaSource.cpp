@@ -17,7 +17,6 @@ MateriaSource::MateriaSource( const MateriaSource & src )
 		if ((src.spell)[i])
 			(this->spell)[i] = (src.spell[i])->clone();
 	}
-	*this = src;
 }
 
 
@@ -41,19 +40,16 @@ MateriaSource::~MateriaSource()
 
 MateriaSource &				MateriaSource::operator=( MateriaSource const & rhs )
 {
-	//if ( this != &rhs )
-	//{
-		//this->_value = rhs.getValue();
-	//}
+	if ( this != &rhs )
+	{
+		for (int i = 0; i < 4; i++)
+		{
+			if ((rhs.spell)[i])
+				(this->spell)[i] = (rhs.spell[i])->clone();
+		}
+	}
 	return *this;
 }
-
-std::ostream &			operator<<( std::ostream & o, MateriaSource const & i )
-{
-	//o << "Value = " << i.getValue();
-	return o;
-}
-
 
 /*
 ** --------------------------------- METHODS ----------------------------------

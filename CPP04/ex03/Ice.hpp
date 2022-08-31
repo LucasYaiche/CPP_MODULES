@@ -24,6 +24,4 @@ class Ice : public AMateria
 
 };
 
-std::ostream &			operator<<( std::ostream & o, Ice const & i );
-
 #endif /* ************************************************************* ICE_H */

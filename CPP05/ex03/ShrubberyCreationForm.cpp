@@ -33,14 +33,6 @@ ShrubberyCreationForm &				ShrubberyCreationForm::operator=( ShrubberyCreationFo
 	return *this;
 }
 
-std::ostream &			operator<<( std::ostream & o, ShrubberyCreationForm const & i )
-{
-	//o << "Value = " << i.getValue();
-	(void) i;
-	return o;
-}
-
-
 /*
 ** --------------------------------- METHODS ----------------------------------
 */
@@ -51,7 +43,7 @@ void	ShrubberyCreationForm::execute(Bureaucrat const & executor) const
 	{
 		if (getSGrade() >= executor.getGrade() && getEGrade() >= executor.getGrade())
 		{
-			std::ofstream ofs(this->_target + "_shurbbery");
+			std::ofstream ofs(this->_target + "_shrubbery");
 			ofs << TREE;
 		}
 		else

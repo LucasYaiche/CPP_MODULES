@@ -34,14 +34,6 @@ PresidentialPardonForm &				PresidentialPardonForm::operator=( PresidentialPardo
 	return *this;
 }
 
-std::ostream &			operator<<( std::ostream & o, PresidentialPardonForm const & i )
-{
-	//o << "Value = " << i.getValue();
-	(void) i;
-	return o;
-}
-
-
 /*
 ** --------------------------------- METHODS ----------------------------------
 */
@@ -51,7 +43,7 @@ void	PresidentialPardonForm::execute(Bureaucrat const & executor) const
 	try
 	{
 		if (getSGrade() >= executor.getGrade() && getEGrade() >= executor.getGrade())
-			std::cout << this->_target << " have been forgiven by Zaphod Beeblebrox" << std::endl;
+			std::cout << this->_target << " has been forgiven by Zaphod Beeblebrox" << std::endl;
 		else
 			throw GradeTooLowException();
 	}

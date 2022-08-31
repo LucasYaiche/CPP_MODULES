@@ -45,7 +45,7 @@ class Form
 		Form();
 		Form(std::string name, int sgrade, int egrade);
 		Form( Form const & src );
-		~Form();
+		virtual ~Form();
 
 		void			Besigned(Bureaucrat bureaucrat);
 		virtual void	execute(Bureaucrat const & executor) const = 0;	

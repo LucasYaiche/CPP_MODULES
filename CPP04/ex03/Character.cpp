@@ -10,7 +10,7 @@ Character::Character(const std::string& name) : name(name)
 		inventory[i] = NULL;
 }
 
-Character::Character( const Character & src )
+Character::Character( const Character & src ) : name(src.name)
 {
 	for(int i = 0; i < 4; i++)
 	{
@@ -42,22 +42,20 @@ Character::~Character()
 Character &				Character::operator=( Character const & rhs )
 {
 
-	for(int i = 0; i < 4; i++)
+	if(this != &rhs)
 	{
-		if (this->inventory[i])
-			delete this->inventory[i];
-		if (rhs.inventory[i])
-			this->inventory[i] = (rhs.inventory[i])->clone();
+		for(int i = 0; i < 4; i++)
+		{
+			if (this->inventory[i])
+				delete this->inventory[i];
+			if (rhs.inventory[i])
+				this->inventory[i] = (rhs.inventory[i])->clone();
+		}
+		this->name = rhs.name;
 	}
-	name = rhs.name;
+		
 	return *this;
 }
-
-std::ostream &			operator<<( std::ostream & o, Character const & i )
-{
-	return o;
-}
-
 
 /*
 ** --------------------------------- METHODS ----------------------------------
@@ -77,14 +75,14 @@ void Character::equip(AMateria* m)
 
 void Character::unequip(int idx)
 {
-	if (idx < 0 || idx > 3)
+	if (idx < 0 || idx > 3 || this->inventory[idx] == NULL)
 	{
-		std::cout << "Index is either too big or too low." << std::endl;
+		std::cout << "Index is incorrect." << std::endl;
 		return ;
 	}
 	AMateria *ptr = this->inventory[idx];
 	this->inventory[idx] = NULL;
-	std::cout << this->name << "dropped" << *ptr << std::endl;
+	std::cout << this->name << " dropped " << ptr->getType() << std::endl;
 }
 
 void Character::use(int idx, ICharacter& target)

@@ -9,15 +9,8 @@ Dog::Dog() : Animal("Dog"), _brain(new Brain())
 	std::cout << "Dog default constructor called" << std::endl;
 }
 
-Dog::Dog( const Dog & src ) : Animal(src)
+Dog::Dog( const Dog & src ) : Animal(src), _brain(new Brain(*(src._brain)))
 {
-	brain = new Brain(*(src.getBrain()));
-	std::cout << "Dog copy constructor called" << std::endl;
-}
-
-Dog::Dog( const Animal & src ) : Animal(src)
-{
-	brain = new Brain(*(src.getBrain()));
 	std::cout << "Dog copy constructor called" << std::endl;
 }
 
@@ -39,16 +32,16 @@ Dog::~Dog()
 
 Dog &				Dog::operator=( Dog const & rhs )
 {
-	this->_type = rhs._type;
-	this->_brain = rhs._brain;
+	if (this != &rhs)
+	{
+		this->_type = rhs._type;
+		this->_brain =new Brain(*rhs.getBrain());
+
+	}
 	return *this;
 }
 
-std::ostream &			operator<<( std::ostream & o, Dog const & i )
-{
-	//o << "Value = " << i.getValue();
-	return o;
-}
+
 
 
 /*

@@ -13,8 +13,7 @@ class Dog : public Animal
 
 		Dog();
 		Dog( Dog const & src );
-		Dog( Animal const & src );
-		~Dog();
+		virtual ~Dog();
 
 		virtual void	makeSound() const;
 
@@ -28,7 +27,5 @@ class Dog : public Animal
 		Brain*	_brain;
 
 };
-
-std::ostream &			operator<<( std::ostream & o, Dog const & i );
 
 #endif /* ************************************************************* DOG_H */

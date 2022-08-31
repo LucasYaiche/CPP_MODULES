@@ -36,6 +36,4 @@ class Intern
 
 };
 
-std::ostream &			operator<<( std::ostream & o, Intern const & i );
-
 #endif /* ********************************************************** INTERN_H */

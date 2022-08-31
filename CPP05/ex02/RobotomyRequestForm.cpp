@@ -33,14 +33,6 @@ RobotomyRequestForm &				RobotomyRequestForm::operator=( RobotomyRequestForm con
 	return *this;
 }
 
-std::ostream &			operator<<( std::ostream & o, RobotomyRequestForm const & i )
-{
-	//o << "Value = " << i.getValue();
-	(void) i;
-	return o;
-}
-
-
 /*
 ** --------------------------------- METHODS ----------------------------------
 */
@@ -54,9 +46,9 @@ void	RobotomyRequestForm::execute(Bureaucrat const & executor) const
 			std::cout << "Brrrrrrrrrrrrrr...Brrrrrrrrrrrrrr...";
 			int nb = rand() % 2;
 			if (nb == 0)
-				std::cout << "you have been robotized successfully. FeelsGoodMan" << std::endl;
+				std::cout << this->_target <<" has been robotized successfully. FeelsGoodMan" << std::endl;
 			else
-				std::cout << "the surgery failed. FeelsBadMan" << std::endl;
+				std::cout << "the surgery of " << this->_target <<" failed. FeelsBadMan" << std::endl;
 		}
 		else
 			throw GradeTooLowException();

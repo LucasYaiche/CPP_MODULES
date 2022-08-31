@@ -28,6 +28,4 @@ class ShrubberyCreationForm : public Form
 
 };
 
-std::ostream &			operator<<( std::ostream & o, ShrubberyCreationForm const & i );
-
 #endif /* ******************************************* SHRUBBERYCREATIONFORM_H */

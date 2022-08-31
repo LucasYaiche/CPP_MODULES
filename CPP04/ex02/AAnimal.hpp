@@ -32,6 +32,4 @@ class AAnimal
 
 };
 
-std::ostream &			operator<<( std::ostream & o, AAnimal const & i );
-
 #endif /* ********************************************************** ANIMAL_H */

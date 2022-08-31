@@ -23,6 +23,4 @@ class Brain
 		std::string _ideas[100];
 };
 
-std::ostream &			operator<<( std::ostream & o, Brain const & i );
-
 #endif /* *********************************************************** BRAIN_H */

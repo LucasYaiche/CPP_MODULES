@@ -9,15 +9,8 @@ Cat::Cat() : AAnimal("Cat"), _brain(new Brain())
 	std::cout << "Cat default constructor called" << std::endl;
 }
 
-Cat::Cat( const Cat & src ) : AAnimal(src)
+Cat::Cat( const Cat & src ) : AAnimal(src), _brain(new Brain(*(src._brain)))
 {
-	brain = new Brain(*(src.getBrain()));
-	std::cout << "Cat copy constructor called" << std::endl;
-}
-
-Cat::Cat( const AAnimal & src ) : AAnimal(src)
-{
-	brain = new Brain(*(src.getBrain()));
 	std::cout << "Cat copy constructor called" << std::endl;
 }
 
@@ -39,15 +32,12 @@ Cat::~Cat()
 
 Cat &				Cat::operator=( Cat const & rhs )
 {
-	this->_type = rhs._type;
-	this->_brain = rhs._brain;
+	if (this != &rhs)
+	{
+		this->_type = rhs._type;
+		this->_brain =new Brain(*rhs.getBrain());
+	}
 	return *this;
-}
-
-std::ostream &			operator<<( std::ostream & o, Cat const & i )
-{
-	//o << "Value = " << i.getValue();
-	return o;
 }
 
 

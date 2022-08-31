@@ -4,19 +4,17 @@
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-Animal::Animal()
+Animal::Animal() : _type("Animal")
 {
-	this->_type = "Animal";
 	std::cout << "Animal default constructor called" << std::endl;
 }
 
-Animal::Animal(std::string type)
+Animal::Animal(std::string type) : _type(type)
 {
-	this->_type = type;
 	std::cout << "Animal default constructor called" << std::endl;
 }
 
-Animal::Animal( const Animal & src )
+Animal::Animal( const Animal & src ) : _type(src._type)
 {
 	std::cout << "Animal copy constructor called" << std::endl;
 }
@@ -38,16 +36,12 @@ Animal::~Animal()
 
 Animal &				Animal::operator=( Animal const & rhs )
 {
-	this->_type = rhs._type;
+	if(this != &rhs)
+	{
+		this->_type = rhs._type;
+	}
 	return *this;
 }
-
-std::ostream &			operator<<( std::ostream & o, Animal const & i )
-{
-	//o << "Value = " << i.getValue();
-	return o;
-}
-
 
 /*
 ** --------------------------------- METHODS ----------------------------------

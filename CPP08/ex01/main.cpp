@@ -32,6 +32,7 @@ int	main(void)
 	Span 				range = Span(5);
 	std::vector<int>	vec(5, 1);
 
+	std::cout << range.getCount() << std::endl;
 	range.addNumber(vec.begin(), vec.end());
 	std::cout << range.getCount() << std::endl;
 	range.addNumber(1);

@@ -8,11 +8,20 @@ Bureaucrat::Bureaucrat(std::string name, int grade) : _name(name), _grade(grade)
 {
 	try
 	{
-		if (grade < 1 || grade > 150)
-			throw GradeIncorrect();
+		if (grade < 1)
+			throw GradeTooHighException();
 	}
 	
-	catch (GradeIncorrect& e)
+	catch (GradeTooHighException& e)
+	{
+		std::cout << e.what() << std::endl;
+	}
+	try
+	{
+		if (grade > 150)
+			throw GradeTooLowException();
+	}
+	catch (GradeTooLowException& e)
 	{
 		std::cout << e.what() << std::endl;
 	}

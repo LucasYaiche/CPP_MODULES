@@ -8,7 +8,7 @@ AMateria::AMateria(std::string const & type) : type(type)
 {
 }
 
-AMateria::AMateria( const AMateria & src )
+AMateria::AMateria( const AMateria & src ) : type(src.type)
 {
 }
 
@@ -28,16 +28,10 @@ AMateria::~AMateria()
 
 AMateria &				AMateria::operator=( AMateria const & rhs )
 {
-	this->type = rhs.type;
+	if(this != &rhs)
+		this->type = rhs.type;
 	return *this;
 }
-
-std::ostream &			operator<<( std::ostream & o, AMateria const & i )
-{
-	//o << "Value = " << i.getValue();
-	return o;
-}
-
 
 /*
 ** --------------------------------- METHODS ----------------------------------

@@ -29,21 +29,9 @@ Intern::~Intern()
 
 Intern &				Intern::operator=( Intern const & rhs )
 {
-	//if ( this != &rhs )
-	//{
-		//this->_value = rhs.getValue();
-	//}
 	(void) rhs;
 	return *this;
 }
-
-std::ostream &			operator<<( std::ostream & o, Intern const & i )
-{
-	//o << "Value = " << i.getValue();
-	(void) i;
-	return o;
-}
-
 
 /*
 ** --------------------------------- METHODS ----------------------------------

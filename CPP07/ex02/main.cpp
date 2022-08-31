@@ -15,7 +15,6 @@ int main(void)
 	std::cout << std::endl;
 	std::cout << "Wrong :";
 	filled[-5] = 5;
-	std::cout << std::endl;
 	std::cout << std::endl << std::endl;
 
 	std::cout << "-----TESTS WITH FILLED ARRAY-----" << std::endl;

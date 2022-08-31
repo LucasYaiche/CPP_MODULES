@@ -16,7 +16,7 @@ AAnimal::AAnimal(std::string type)
 	std::cout << "AAnimal default constructor called" << std::endl;
 }
 
-AAnimal::AAnimal( const AAnimal & src )
+AAnimal::AAnimal( const AAnimal & src ) : _type(src._type)
 {
 	std::cout << "AAnimal copy constructor called" << std::endl;
 }
@@ -41,13 +41,6 @@ AAnimal &				AAnimal::operator=( AAnimal const & rhs )
 	this->_type = rhs._type;
 	return *this;
 }
-
-std::ostream &			operator<<( std::ostream & o, AAnimal const & i )
-{
-	//o << "Value = " << i.getValue();
-	return o;
-}
-
 
 /*
 ** --------------------------------- METHODS ----------------------------------

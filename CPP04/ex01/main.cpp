@@ -40,6 +40,29 @@ int main()
 	std::cout << cat_ptr->getBrain()->getIdea(45) << std::endl;
 		
 	std::cout << "=============================" << std::endl;
+
+	Dog dog_test;
+	
+	dog_test = *dog_ptr;
+	std::cout << std::endl;
+	std::cout << dog_ptr->getBrain()->getIdea(2) << std::endl; 
+	std::cout << dog_ptr->getBrain()->getIdea(45) << std::endl;
+	
+	std::cout << dog_test.getBrain()->getIdea(2) << std::endl; 
+	std::cout << dog_test.getBrain()->getIdea(45) << std::endl;
+
+	std::cout << std::endl;
+
+	dog_ptr->getBrain()->setIdea(2, "robot");
+	dog_ptr->getBrain()->setIdea(45, "live");
+
+	std::cout << dog_ptr->getBrain()->getIdea(2) << std::endl; 
+	std::cout << dog_ptr->getBrain()->getIdea(45) << std::endl;
+	
+	std::cout << dog_test.getBrain()->getIdea(2) << std::endl; 
+	std::cout << dog_test.getBrain()->getIdea(45) << std::endl;
+
+	std::cout << "=============================" << std::endl;
 	for (int i = 0; i < NUMBER; i++)
 	{
 		delete animals[i];

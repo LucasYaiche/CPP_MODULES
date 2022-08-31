@@ -33,15 +33,12 @@ Brain::~Brain()
 
 Brain &				Brain::operator=( Brain const & rhs )
 {
-	for (int i = 0; i < 100; i++)
-		this->_ideas[i] = rhs._ideas[i];
+	if(this != &rhs)
+	{
+		for (int i = 0; i < 100; i++)
+			this->_ideas[i] = rhs._ideas[i];
+	}
 	return *this;
-}
-
-std::ostream &			operator<<( std::ostream & o, Brain const & i )
-{
-	//o << "Value = " << i.getValue();
-	return o;
 }
 
 

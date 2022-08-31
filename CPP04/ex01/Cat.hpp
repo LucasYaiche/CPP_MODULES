@@ -13,8 +13,7 @@ class Cat : public Animal
 
 		Cat();
 		Cat( Cat const & src );
-		Cat( Animal const & src );
-		~Cat();
+		virtual ~Cat();
 
 		virtual void	makeSound() const;
 
@@ -29,7 +28,5 @@ class Cat : public Animal
 		Brain*	_brain;
 
 };
-
-std::ostream &			operator<<( std::ostream & o, Cat const & i );
 
 #endif /* ************************************************************* CAT_H */

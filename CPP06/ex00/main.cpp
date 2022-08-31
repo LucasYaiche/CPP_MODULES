@@ -43,7 +43,7 @@ int	main(int argc, char **argv)
 			if (argv[1][i] == '.')
 				count++;
 		}
-		if (!isdigit(argv[1][0]) || count > 1)
+		if ((!isdigit(argv[1][0]) && argv[1][0] != '-' )|| count > 1)
 		{
 			std::cout << "char: " << "Impossible" << std::endl;
 			std::cout << "int: " << "Impossible" << std::endl;
@@ -56,7 +56,12 @@ int	main(int argc, char **argv)
 			size_t 	i = -1;
 			while (++i < strlen(argv[1]))
 			{
-				if (i != strlen(argv[1]) && (!isdigit(argv[1][i]) && argv[1][i] != '.') )
+				if (argv[1][i] == '-' && i == 0)
+				{
+					i++;
+				}
+
+				if (i != strlen(argv[1]) && (!isdigit(argv[1][i]) && argv[1][i] != '.' && argv[1][i] != 'f'))
 				{
 					std::cout << "char: " << "Impossible" << std::endl;
 					std::cout << "int: " << "Impossible" << std::endl;
@@ -64,7 +69,15 @@ int	main(int argc, char **argv)
 					std::cout << "double: " << "Impossible" << std::endl;
 					return 0;
 				}
-				else if (i == strlen(argv[1]) && (!isdigit(argv[1][i]) && argv[1][i] != 'f'))
+				else if (argv[1][i] == 'f' && i != strlen(argv[1]) - 1)
+				{
+					std::cout << "char: " << "Impossible" << std::endl;
+					std::cout << "int: " << "Impossible" << std::endl;
+					std::cout << "float: " << "Impossible" << std::endl;
+					std::cout << "double: " << "Impossible" << std::endl;
+					return 0;
+				}
+				else if (argv[1][i] == '.' && !isdigit(argv[1][i + 1]))
 				{
 					std::cout << "char: " << "Impossible" << std::endl;
 					std::cout << "int: " << "Impossible" << std::endl;
@@ -75,6 +88,10 @@ int	main(int argc, char **argv)
 			}
 			double	num = strtod(argv[1], NULL);
 
+			if (argv[1][1] == '-')
+			{
+				std::cout << '-';
+			}
 			if (num >= 32 && num < 127)
 			{
 				std::cout << "char: " << static_cast<char>(num) << std::endl;
