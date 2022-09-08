@@ -13,6 +13,18 @@ int	main(void)
 	}
 	std::cout << std::endl << std::endl;
 
+	std::cout << "-----INVALID TEST-----" << std::endl;
+	try
+	{
+		Span no(80);
+		no.addNumber(5);
+		no.addNumber(8);
+		std::cout << no.shortestSpan() << std::endl;
+	}
+	catch(std::exception& e)
+	{
+		std::cout << e.what() << std::endl;
+	}
 	/**************************************************/
 
 	std::cout << "-----PDF TESTS-----" << std::endl;
@@ -35,7 +47,14 @@ int	main(void)
 	std::cout << range.getCount() << std::endl;
 	range.addNumber(vec.begin(), vec.end());
 	std::cout << range.getCount() << std::endl;
-	range.addNumber(1);
+	try
+	{
+		range.addNumber(1);
+	}
+	catch(std::exception& e)
+	{
+		std::cout << e.what() << std::endl;
+	}
 
 
 

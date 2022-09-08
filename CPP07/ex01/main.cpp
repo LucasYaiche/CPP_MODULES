@@ -23,5 +23,8 @@ int main(void)
 	Awesome tab2[5];
 	iter( tab, 5, print );
 	iter( tab2, 5, print );
+
+
+	// system("leaks Iter");
 	return 0;
 }

@@ -12,7 +12,14 @@ int main(void)
 
 	std::cout << "-----TESTS-----" << std::endl;
 	std::cout << "Wrong test: ";
-	easyfind(vector, 6);
+	try
+	{
+		easyfind(vector, 6);
+	}
+	catch(std::exception& e)
+	{
+		std::cout << e.what() << std::endl;
+	}
 	std::cout << "Good test : " << *easyfind(vector, 96) << std::endl;
 
 }	

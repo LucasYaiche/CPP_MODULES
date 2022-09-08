@@ -54,39 +54,26 @@ Span &				Span::operator=( Span const & rhs )
 
 void	Span::addNumber(int nbr)
 {
-	try
+	if (this->_count + 1 > this->_size)
 	{
-		if (this->_count + 1 > this->_size)
-		{
-			throw NotEnoughSpaceException();
-		}
-		else
-		{
-			this->_vectorint->push_back(nbr);
-			this->_count++;
-		}
+		throw NotEnoughSpaceException();
 	}
-	catch(NotEnoughSpaceException& e)
+	else
 	{
-		std::cout << e.what() << std::endl;
+		this->_vectorint->push_back(nbr);
+		this->_count++;
 	}
 }
 
 void	Span::addNumber(std::vector<int>::iterator begin, std::vector<int>::iterator end)
 {
-	try
+
+	if (std::distance(begin, end) + this->_count > this->_size)
+		throw NotEnoughSpaceException();
+	else
 	{
-		if (std::distance(begin, end) + this->_count > this->_size)
-			throw NotEnoughSpaceException();
-		else
-		{
-			this->_count += std::distance(begin, end);
-			this->_vectorint->assign(begin, end);
-		}
-	}
-	catch(NotEnoughSpaceException& e)
-	{
-		std::cout << e.what() << std::endl;
+		this->_count += std::distance(begin, end);
+		this->_vectorint->assign(begin, end);
 	}
 }
 
@@ -100,8 +87,12 @@ int		Span::shortestSpan()
 	int					shortest;
 	std::vector<int>	copy(*this->_vectorint);
 
+	if (this->_count <= 1)
+		return 0;
+	if (this->_count == 2)
+		return (abs(copy[0] - copy[1]));
 	std::sort(copy.begin(), copy.end());
-	shortest = copy[1] - copy[0];
+		shortest = copy[1] - copy[0];
 	for(unsigned int i = 0; i < this->_size - 1; i++)
 	{
 		if (copy[i + 1] - copy[i] < shortest)

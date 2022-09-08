@@ -37,5 +37,6 @@ int main(void)
 	std::cout << "contains = " << deserialized->_data << std::endl;
 
 	delete data;
+	system("leaks Serialization");
 	return (0);
 }

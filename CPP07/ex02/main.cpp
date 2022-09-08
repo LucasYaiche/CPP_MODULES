@@ -14,7 +14,7 @@ int main(void)
 	empty[0] = 5;
 	std::cout << std::endl;
 	std::cout << "Wrong :";
-	filled[-5] = 5;
+	filled[5] = 5;
 	std::cout << std::endl << std::endl;
 
 	std::cout << "-----TESTS WITH FILLED ARRAY-----" << std::endl;
@@ -26,6 +26,7 @@ int main(void)
 
 	std::cout << "-----TESTS WITH STRINGS-----" << std::endl;
 	Array<std::string>	words(3);
+
 	words[0] = "I";
 	words[1] = "am";
 	words[2] = "gay";
@@ -33,7 +34,4 @@ int main(void)
 	{
 		std::cout << words[i] << std::endl;
 	}
-
-
-
 }

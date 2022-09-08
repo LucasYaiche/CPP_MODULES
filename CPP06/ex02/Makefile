@@ -1,4 +1,4 @@
-NAME = Serialization
+NAME = Base
 
 CXXFLAGS = -Wall -Werror -Wextra -std=c++98
 

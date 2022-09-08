@@ -83,5 +83,6 @@ int main(void)
 	delete rand3;
 	delete rand4;
 	
+	system("leaks Base");
 	return (0);
 }

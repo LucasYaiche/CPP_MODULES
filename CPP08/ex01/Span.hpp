@@ -12,7 +12,7 @@ class	NotEnoughSpaceException : public std::exception
 	public:
 		const char* what() const throw()
 		{
-			return "No Enough space";
+			return "Not Enough space";
 		}
 };
 

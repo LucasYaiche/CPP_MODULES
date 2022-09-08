@@ -54,15 +54,8 @@ class Array
 
 		T &			operator[](int i)
 		{
-			try
-			{
-				if (i >= this->_size || i < 0)
-					throw	InvalidIndexException();
-			}
-			catch(InvalidIndexException& e)
-			{
-				std::cout << e.what() << std::endl;
-			}
+			if (i >= this->_size || i < 0)
+				throw	InvalidIndexException();
 			return this->_array[i];
 		}
 
